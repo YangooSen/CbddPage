@@ -1,0 +1,1 @@
+import{_ as n,c as t,f as o,o as c}from"./index-DznS-Xf-.js";const s={},a={class:"content"};function r(l,e){return c(),t("div",a,e[0]||(e[0]=[o("ul",null,[o("li",null," Dr. Dongsheng Cao (Xiangya School of Pharmaceutical Sciences, Central South University) ")],-1)]))}const u=n(s,[["render",r]]);export{u as default};

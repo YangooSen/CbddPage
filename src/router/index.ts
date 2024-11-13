@@ -42,6 +42,13 @@ const router = createRouter({
       path: "/link",
       name: "link",
       component: () => import("@/components/Link.vue"),
+      children: [
+        {
+          name: "group",
+          path: "group",
+          component: () => import("@/components/link/Group.vue"),
+        },
+      ],
     },
   ],
 });
