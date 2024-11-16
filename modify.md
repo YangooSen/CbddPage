@@ -1,4 +1,0 @@
-- 设置导航栏 div 占满整行
-- 如何打包部署?
-- 图片居中？
-- RouterView 中的 el-menu 似乎有点问题，item 选中之后马上又取消了，不能同时选中两个 el-menu 中的 item 吗

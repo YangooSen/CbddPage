@@ -2,44 +2,32 @@
   <div class="app">
     <el-menu
       mode="horizontal"
-      background-color="#666666"
-      text-color="white"
-      active-text-color="#FF0000"
       :default-active="selectedIndex"
       @select="selected"
       class="nevigate"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
     >
-      <el-menu-item index="/">
-        <RouterLink to="/">CBDD课题组</RouterLink>
+      <el-menu-item index="/" class="routerlink"> CBDD课题组 </el-menu-item>
+
+      <el-menu-item index="/home" class="routerlink"> 网站首页 </el-menu-item>
+
+      <el-menu-item index="/research" class="routerlink">
+        研究方向
       </el-menu-item>
 
-      <el-menu-item index="/home">
-        <RouterLink to="/home">网站首页</RouterLink>
+      <el-menu-item index="/people" class="routerlink">人员组成 </el-menu-item>
+
+      <el-menu-item index="/publication" class="routerlink"
+        >论文专利
       </el-menu-item>
 
-      <el-menu-item index="/research">
-        <RouterLink to="/research">研究方向</RouterLink>
-      </el-menu-item>
+      <el-menu-item index="/program" class="routerlink">程序开发 </el-menu-item>
 
-      <el-menu-item index="/people">
-        <RouterLink to="/people">人员组成</RouterLink>
-      </el-menu-item>
+      <el-menu-item index="/gallery" class="routerlink">照片展示 </el-menu-item>
 
-      <el-menu-item index="/publication">
-        <RouterLink to="/publication">论文专利</RouterLink>
-      </el-menu-item>
-
-      <el-menu-item index="/program">
-        <RouterLink to="/program">程序开发</RouterLink>
-      </el-menu-item>
-
-      <el-menu-item index="/gallery">
-        <RouterLink to="/gallery">照片展示</RouterLink>
-      </el-menu-item>
-
-      <el-menu-item index="/link">
-        <RouterLink to="/link">友情链接</RouterLink>
-      </el-menu-item>
+      <el-menu-item index="/link" class="routerlink">友情链接 </el-menu-item>
     </el-menu>
 
     <div class="content">
@@ -60,6 +48,16 @@ const selected = (index: string, indexPath: object) => {
   // 选中的是link时，默认直接选中group
   if (index == "/link") {
     router.push("/link/group");
+  } else if (index == "/research") {
+    router.push("/research/aidd");
+  } else if (index == "/people") {
+    router.push("/people/mentor");
+  } else if (index == "/publication") {
+    router.push("/publication/paper");
+  } else if (index == "/program") {
+    router.push("/program");
+  } else if (index == "/" || index == "/home") {
+    router.push("/home");
   }
 };
 </script>
@@ -67,5 +65,8 @@ const selected = (index: string, indexPath: object) => {
 .nevigate {
   display: flex;
   justify-content: space-evenly;
+}
+.routerlink {
+  font-size: 20px;
 }
 </style>
