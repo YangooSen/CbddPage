@@ -1,9 +1,10 @@
 <template>
-  <div class="LinkContent">
+  <div class="PeopleContent">
     <el-row class="sidebar-container" align="top">
       <!-- 侧边栏 -->
       <el-col :span="3" :offset="1">
         <el-menu
+          v-model:default-active="subMenuIndexStore.subMenuIndex"
           mode="vertical"
           class="nevigate"
           active-text-color="#ffd04b"
@@ -12,8 +13,26 @@
           @select="selected"
         >
           >
-          <el-menu-item index="/link/group" class="routerlink">
-            合作课题组
+          <el-menu-item index="/people/mentor" class="routerlink">
+            导师
+          </el-menu-item>
+          <el-menu-item index="/people/postdoc" class="routerlink">
+            博士后
+          </el-menu-item>
+          <el-menu-item index="/people/phd" class="routerlink">
+            博士生
+          </el-menu-item>
+          <el-menu-item index="/people/master" class="routerlink">
+            硕士生
+          </el-menu-item>
+          <el-menu-item index="/people/undergraduate" class="routerlink">
+            本科生
+          </el-menu-item>
+          <el-menu-item index="/people/collaborating" class="routerlink">
+            合作导师
+          </el-menu-item>
+          <el-menu-item index="/people/graduate" class="routerlink">
+            毕业生
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -28,6 +47,9 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { useSubMenuIndex } from "@/stores/subMenuIndex";
+
+const subMenuIndexStore = useSubMenuIndex();
 const router = useRouter();
 const selected = (index: string, indexPath: object) => {
   console.log("index", index, "indexPath", indexPath);
@@ -35,7 +57,7 @@ const selected = (index: string, indexPath: object) => {
 };
 </script>
 <style scoped>
-.LinkContent {
+.PeopleContent {
   margin-top: 50px;
 }
 .routerlink {

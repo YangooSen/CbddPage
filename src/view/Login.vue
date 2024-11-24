@@ -1,4 +1,6 @@
-<template>专利成果</template>
+<template>
+  <h1>登录页面</h1>
+</template>
 
 <script setup lang="ts"></script>
 <style scoped></style>

@@ -4,6 +4,7 @@
       <!-- 侧边栏 -->
       <el-col :span="3" :offset="1">
         <el-menu
+          v-model:default-active="subMenuIndexStore.subMenuIndex"
           mode="vertical"
           class="nevigate"
           active-text-color="#ffd04b"
@@ -36,9 +37,13 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
+import { useSubMenuIndex } from "@/stores/subMenuIndex";
+
+const subMenuIndexStore = useSubMenuIndex();
+
 const router = useRouter();
+
 const selected = (index: string, indexPath: object) => {
-  console.log("index", index, "indexPath", indexPath);
   router.push(index);
 };
 </script>
@@ -51,6 +56,7 @@ const selected = (index: string, indexPath: object) => {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .nevigate {
   position: fixed;
   border-radius: 15px; /* 设置菜单整体的圆角 */

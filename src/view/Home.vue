@@ -2,9 +2,9 @@
   <div class="HomeContent">
     <div class="description">
       <div class="PaperSlideImg">
-        <el-carousel>
+        <el-carousel :height="'50vh'">
           <el-carousel-item v-for="item in figs" :key="item.index">
-            <img :src="item.file" alt="无法加载" />
+            <img :src="item.file" alt="无法加载" class="carouselImg" />
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -37,18 +37,17 @@
 
     <div class="admissions">
       <span class="underline"> 加入我们 </span>
-      <p>热烈欢迎对上述研究方向感兴趣的同学加入曹东升教授课题组。</p>
+      <p>热烈欢迎对上述研究方向感兴趣的同学加入曹东升教授课题组</p>
       <span class="underline"> 联系方式 </span>
-      <p>联系人：</p>
+      <p>联系人：曹东升</p>
       <p>地址：中南大学湘雅药学院</p>
-      <p>电话：</p>
-      <p>邮箱：</p>
+      <p>邮箱：oriental-cds@163.com</p>
     </div>
     <span
       class="underline"
       style="display: block; font-size: 30px; margin-left: 3%"
     >
-      更多
+      更多（下面的二维码图片重新找，会过期）
     </span>
     <div class="more">
       <div class="account">
@@ -79,9 +78,9 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const modules = import.meta.glob("@/assets/img/paper_slide/*");
-const files = ref(Object.keys(modules));
+const files = Object.keys(modules);
 let i: number = 0;
-const figs = files.value.map((item) => {
+const figs = files.map((item) => {
   i += 1;
   return {
     index: i,
@@ -111,6 +110,19 @@ const rsum = () => {
   flex-direction: column;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+.PaperSlideImg {
+  flex: 1;
+  margin-left: 3%;
+  margin-right: 3%;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 5px;
+}
+.carouselImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .more {
   margin-left: 3%;
@@ -147,14 +159,7 @@ const rsum = () => {
   margin-top: 5%;
   font-size: 30px;
 }
-.PaperSlideImg {
-  flex: 1;
-  margin-left: 3%;
-  margin-right: 3%;
-  border: 1px solid gray; /* 灰色边框 */
-  padding: 10px; /* 内边距 */
-  border-radius: 5px; /* 可选：圆角边框 */
-}
+
 .SimpleText {
   flex: 2;
   margin-right: 3%;

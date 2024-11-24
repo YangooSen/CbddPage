@@ -4,6 +4,7 @@
       <!-- 侧边栏 -->
       <el-col :span="3" :offset="1">
         <el-menu
+          v-model:default-active="subMenuIndexStore.subMenuIndex"
           mode="vertical"
           class="nevigate"
           active-text-color="#ffd04b"
@@ -21,6 +22,9 @@
           <el-menu-item index="/publication/work" class="routerlink">
             软件/著作
           </el-menu-item>
+          <el-menu-item index="/publication/else" class="routerlink">
+            其他荣誉
+          </el-menu-item>
         </el-menu>
       </el-col>
 
@@ -33,10 +37,13 @@
 </template>
 
 <script setup lang="ts">
+import { useSubMenuIndex } from "@/stores/subMenuIndex";
 import { useRouter } from "vue-router";
+const subMenuIndexStore = useSubMenuIndex();
+
 const router = useRouter();
 const selected = (index: string, indexPath: object) => {
-  console.log("index", index, "indexPath", indexPath);
+  // console.log("index", index, "indexPath", indexPath);
   router.push(index);
 };
 </script>
